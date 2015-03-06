@@ -8,6 +8,29 @@ var detuneMultiplier;
 var antislack = .5;
 var slack = 25;
 
+//timbre
+var real = new Float32Array(9);
+real[0] = 0;
+real[1] = 1;
+real[2] = 2;
+real[3] = 4;
+real[4] = 8;
+real[5] = 16;
+real[6] = 32;
+real[7] = 64;
+real[8] = 128;
+var img = new Float32Array(9);
+img[0] = 0;
+img[1] = 1;
+img[2] = 2;
+img[3] = 4;
+img[4] = 8;
+img[5] = 16;
+img[6] = 32;
+img[7] = 64;
+img[8] = 128;
+var myInstrument = context.createPeriodicWave(real, img);
+
 $(function(){
 	if(localStorage.getItem("bestCents")){
 		cents = parseInt(localStorage.getItem("bestCents"))+slack;
@@ -44,10 +67,12 @@ function playPair(tonic, cents){
 	var tonicOsc = context.createOscillator();
 	tonicOsc.frequency.value = tonic;
 	tonicOsc.connect(tonicGain);
+	tonicOsc.setPeriodicWave(myInstrument);
 	var secondOsc = context.createOscillator();
 	secondOsc.frequency.value = tonic;
 	secondOsc.detune.value = cents;
 	secondOsc.connect(secondGain);
+	secondOsc.setPeriodicWave(myInstrument);
 
 	//console.log("tonicOsc.frequency.value: "+tonicOsc.frequency.value);
 	//console.log("secondOsc.frequency.value: "+secondOsc.frequency.value);
