@@ -9,7 +9,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 		<script type="text/javascript" src="instruments/organ.js"></script>
-		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="PitchDetect/pitchdetector.js"></script>
+		<script type="text/javascript" src="sing.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -19,8 +20,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a>Listen</a></li>
-						<li><a href="sing.html">Sing</a></li>
+						<li><a>Listen</a></li>
+						<li class="active"><a href="sing.html">Sing</a></li>
 					</ul>
 				</div>
 			</div>
@@ -29,16 +30,8 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-6 col-md-offset-3">
-					<p>your current best: <span id="bestCents">x</span> cents.</p>
-					<p>tonic: <span id="tonic">x</span></p>
-					<hr>
-
-					<p>currently testing: <span id="currentlyTesting">x</span> cents.</p>
-					
-					<p>Was the second pitch higher or lower?</p>
-					<button id="higher" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-arrow-up"></span> higher</button>
-					<button id="playPair" class="btn btn-default btn-lg col-md-offset-5"><span class="glyphicon glyphicon-play"></span> play pair</button>
-					<button id="lower" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-arrow-down"></span> lower</button>
+					<p>You are singing: <span id="currentSing"></span>Hz.</p>
+					<p>Please sing: <span id="targetSing"></span>Hz</p>
 				</div>
 			</div>
 		</div>

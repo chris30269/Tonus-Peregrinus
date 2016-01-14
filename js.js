@@ -1,5 +1,5 @@
 var detuneMultipliers = [-1,1];
-var context = new webkitAudioContext();
+var context = new AudioContext();
 var tonic;
 var cents;
 var freqs = [440, 466.164, 493.883, 523.252, 554.366, 293.665, 311.127, 329.628, 349.228, 369.994, 391.995, 415.305];
